@@ -1,0 +1,55 @@
+﻿Utwórz końcówki, spełniające poniższe założenia. Pamiętaj o:
+- Zwracaniu poprawnych kodów http
+- Programowaniu w sposób asynchroniczny
+- Wydzieleniu logiki biznesowej z kontrolera/endpointa
+
+1. Przygotuj końcówkę, służącą do pobierania informacji o konkretnym studencie,
+ zapisanym w bazie danych, wraz z informacją o jego przypisaniu do poszczególnych grup.
+ Przykład zapytania:
+ 
+ - request : GET /students/1
+ 
+ - response : OK
+{
+  "id": 1,
+  "groups": [
+    {
+      "id": 1,
+      "name": "01c"
+    }
+  ],
+  "firstName": "Kacper",
+  "lastName": "Kowalski",
+  "phone": "444455522",
+  "birthdate": "2024-04-12T00:00:00"
+}
+
+2. Przygotuj końcówkę, która umożliwi dodanie do bazy nowego studenta, 
+wraz z opcjonalnym jego przypisaniem do grup o podanych numerach identyfikacyjnych.
+Przykład zapytania:
+
+- request : POST /students
+{
+  "firstName": "Kacper",
+  "lastName": "Kowalski",
+  "phone": "111222333",
+  "birthdate": "2024-04-20T12:40:39.605Z",
+  "groupsIds": [
+    1
+  ]
+}
+
+- response : Created /students/2014
+{
+  "id": 2014,
+  "groups": [
+    {
+      "id": 1,
+      "name": "01c"
+    }
+  ],
+  "firstName": "Kacper",
+  "lastName": "Kowalski",
+  "phone": "111222333",
+  "birthdate": "2024-04-20T12:40:39.605Z"
+}
